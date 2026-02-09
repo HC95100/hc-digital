@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles globaux HC Digital */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-slate-800 bg-background-dark text-slate-200;
+    @apply transition-colors duration-300 overflow-x-hidden;
+    @apply selection:bg-secondary selection:text-primary-dark;
+  }
+}
+
+@layer components {
+
+  /* Panel glassmorphism */
+  .glass-panel {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10 shadow-xl;
+  }
+
+  /* Texte avec effet glow */
+  .text-glow {
+    text-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+  }
+
+  /* Pattern de grille */
+  .grid-pattern {
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  }
+
+  /* Animation de révélation au scroll */
+  .reveal {
+    @apply opacity-0 translate-y-4 transition-all duration-500;
+  }
+
+  .reveal.active {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+/* Transitions de page fluides */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Animation de gradient pour le H1 */
+@keyframes gradient-x {
+
+  0%,
+  100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 3s ease infinite;
+}
+
+/* Optimisation mobile */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
+  section {
+    @apply py-16;
+  }
+}
+
+/* Focus visible pour accessibilité */
+a:focus-visible,
+button:focus-visible {
+  @apply outline-none ring-2 ring-secondary ring-offset-2 ring-offset-background-dark;
+}
+
+/* Scrollbar personnalisée (desktop) */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0B1120;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1e40af;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00E5FF;
+  }
+}
