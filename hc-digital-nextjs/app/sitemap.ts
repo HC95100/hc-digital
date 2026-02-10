@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hc-digital.fr'
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hc-digital-web.fr'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     return [

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /api
-Sitemap: https://hc-digital.fr/sitemap.xml
+Sitemap: https://hc-digital-web.fr/sitemap.xml
