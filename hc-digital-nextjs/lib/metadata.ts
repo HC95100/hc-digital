@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 export const siteConfig = {
     name: 'HC Digital',
     description: 'Agence web spécialisée dans la création de sites vitrines pour PME et artisans',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://hc-digital-web.fr',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://hc-digital-web.com',
     email: 'contact.chohabi@gmail.com',
     locale: 'fr_FR',
 }
