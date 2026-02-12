@@ -40,6 +40,10 @@ export const defaultMetadata: Metadata = {
             },
         ],
     },
+    icons: {
+        icon: '/icon.png',
+        apple: '/apple-icon.png',
+    },
     twitter: {
         card: 'summary_large_image',
         title: `${siteConfig.name} - Agence Web & Sites Vitrines Premium`,
