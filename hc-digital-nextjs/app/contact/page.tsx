@@ -5,7 +5,7 @@ import ContactForm from '@/components/sections/ContactForm'
 // Métadonnées SEO
 export const metadata: Metadata = generatePageMetadata(
     'Contact - Demander un Devis Gratuit',
-    'Contactez HC Digital pour votre projet de site vitrine. Devis gratuit sous 24h. Email: contact.chohabi@gmail.com. France entière en distanciel.',
+    'Contactez HC Digital pour votre projet de site vitrine. Devis gratuit sous 24h. Tel: 0652937631 (WhatsApp) - Email: contact.chohabi@gmail.com. France entière en distanciel.',
     '/contact'
 )
 

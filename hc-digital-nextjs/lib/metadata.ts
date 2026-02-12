@@ -6,6 +6,7 @@ export const siteConfig = {
     description: 'Agence web spécialisée dans la création de sites vitrines pour PME et artisans',
     url: process.env.NEXT_PUBLIC_SITE_URL || 'https://hc-digital-web.com',
     email: 'contact.chohabi@gmail.com',
+    phone: '0652937631',
     locale: 'fr_FR',
 }
 

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { Send, Mail, MapPin, CheckCircle } from 'lucide-react'
+import { Send, Mail, MapPin, CheckCircle, Phone } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import { Input, Textarea, Select } from '@/components/ui/Input'
 import { siteConfig } from '@/lib/metadata'
@@ -109,6 +109,21 @@ export default function ContactForm() {
                                 <div>
                                     <span className="block text-sm text-slate-400">Email</span>
                                     <span className="font-bold text-lg">{siteConfig.email}</span>
+                                </div>
+                            </a>
+
+                            <a
+                                href={`https://wa.me/33${siteConfig.phone.slice(1)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center text-slate-300 hover:text-white transition group p-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10"
+                            >
+                                <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center border border-green-500/30 group-hover:scale-110 transition mr-5">
+                                    <Phone className="text-green-400" size={24} />
+                                </div>
+                                <div>
+                                    <span className="block text-sm text-slate-400">Téléphone</span>
+                                    <span className="font-bold text-lg">{siteConfig.phone} (Appel & WhatsApp)</span>
                                 </div>
                             </a>
 

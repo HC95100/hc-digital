@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { siteConfig } from '@/lib/metadata'
-import { Mail, MapPin } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 
 // Liens rapides
 const quickLinks = [
@@ -36,6 +36,12 @@ export default function Footer() {
                             <Mail size={14} />
                             <a href={`mailto:${siteConfig.email}`} className="hover:text-secondary transition">
                                 {siteConfig.email}
+                            </a>
+                        </div>
+                        <div className="flex items-center gap-2 text-slate-400 text-sm">
+                            <Phone size={14} />
+                            <a href={`https://wa.me/33${siteConfig.phone.slice(1)}`} className="hover:text-secondary transition" target="_blank" rel="noopener noreferrer">
+                                {siteConfig.phone} (Appel & WhatsApp)
                             </a>
                         </div>
                         <div className="flex items-center gap-2 text-slate-400 text-sm">
