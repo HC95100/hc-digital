@@ -8,6 +8,7 @@ import Footer from '@/components/layout/Footer'
 import ExitPopup from '@/components/features/ExitPopup'
 import StickyMobileCTA from '@/components/features/StickyMobileCTA'
 import CookieBanner from '@/components/features/CookieBanner'
+import { Analytics } from '@vercel/analytics/next'
 
 // Police Plus Jakarta Sans optimisée via next/font
 const jakarta = Plus_Jakarta_Sans({
@@ -64,6 +65,7 @@ export default function RootLayout({
                 <StickyMobileCTA />
                 <ExitPopup />
                 <CookieBanner />
+                <Analytics />
             </body>
         </html>
     )
