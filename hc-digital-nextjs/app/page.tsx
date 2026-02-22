@@ -6,12 +6,13 @@ import Advantages from '@/components/sections/Advantages'
 import Pricing from '@/components/sections/Pricing'
 import Process from '@/components/sections/Process'
 import FAQ from '@/components/sections/FAQ'
+import LocalSection from '@/components/sections/LocalSection'
 import ContactForm from '@/components/sections/ContactForm'
 
 // Métadonnées SEO de la page d'accueil
 export const metadata: Metadata = generatePageMetadata(
-    'Création de Site Web à votre image',
-    'Votre vitrine digitale haut de gamme. Agence web spécialisée en sites vitrines pour TPE/PME. Devis gratuit en 24h. À partir de 500€.',
+    'Agence Web à Argenteuil (95) — Création de Site Vitrine pour PME & Artisans',
+    'Agence web basée à Argenteuil (95100). Création de sites vitrines professionnels pour TPE, PME et artisans en Val-d\'Oise et Île-de-France. Devis gratuit en 24h. À partir de 500€.',
     '/'
 )
 
@@ -33,7 +34,9 @@ export default function HomePage() {
             <Pricing />
             <Process />
             <FAQ />
+            <LocalSection />
             <ContactForm />
         </>
     )
 }
+

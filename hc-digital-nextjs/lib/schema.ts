@@ -10,10 +10,37 @@ export function generateOrganizationSchema() {
         logo: `${siteConfig.url}/images/logo.png`,
         description: siteConfig.description,
         email: siteConfig.email,
+        telephone: siteConfig.phone,
         address: {
             '@type': 'PostalAddress',
+            addressLocality: 'Argenteuil',
+            postalCode: '95100',
+            addressRegion: 'Val-d\'Oise',
             addressCountry: 'FR',
         },
+        geo: {
+            '@type': 'GeoCoordinates',
+            latitude: '48.9472',
+            longitude: '2.2467',
+        },
+        areaServed: [
+            {
+                '@type': 'City',
+                name: 'Argenteuil',
+            },
+            {
+                '@type': 'AdministrativeArea',
+                name: 'Val-d\'Oise',
+            },
+            {
+                '@type': 'AdministrativeArea',
+                name: 'Île-de-France',
+            },
+            {
+                '@type': 'Country',
+                name: 'France',
+            },
+        ],
     }
 }
 
@@ -26,15 +53,41 @@ export function generateLocalBusinessSchema() {
         image: `${siteConfig.url}/images/logo.png`,
         priceRange: '500€ - 2000€',
         email: siteConfig.email,
+        telephone: siteConfig.phone,
+        url: siteConfig.url,
         address: {
             '@type': 'PostalAddress',
+            streetAddress: 'Argenteuil',
+            addressLocality: 'Argenteuil',
+            postalCode: '95100',
+            addressRegion: 'Val-d\'Oise',
             addressCountry: 'FR',
         },
-        areaServed: 'FR',
+        geo: {
+            '@type': 'GeoCoordinates',
+            latitude: '48.9472',
+            longitude: '2.2467',
+        },
+        areaServed: [
+            { '@type': 'City', name: 'Argenteuil' },
+            { '@type': 'City', name: 'Cergy' },
+            { '@type': 'City', name: 'Pontoise' },
+            { '@type': 'City', name: 'Sarcelles' },
+            { '@type': 'City', name: 'Enghien-les-Bains' },
+            { '@type': 'AdministrativeArea', name: 'Val-d\'Oise' },
+            { '@type': 'AdministrativeArea', name: 'Île-de-France' },
+            { '@type': 'Country', name: 'France' },
+        ],
         aggregateRating: {
             '@type': 'AggregateRating',
             ratingValue: '5',
             reviewCount: '47',
+        },
+        openingHoursSpecification: {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+            opens: '09:00',
+            closes: '19:00',
         },
     }
 }
@@ -46,9 +99,21 @@ export function generateServiceSchema() {
         '@type': 'Service',
         serviceType: 'Création de sites vitrines',
         provider: {
-            '@type': 'Organization',
+            '@type': 'LocalBusiness',
             name: siteConfig.name,
+            address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Argenteuil',
+                postalCode: '95100',
+                addressRegion: 'Val-d\'Oise',
+                addressCountry: 'FR',
+            },
         },
+        areaServed: [
+            { '@type': 'City', name: 'Argenteuil' },
+            { '@type': 'AdministrativeArea', name: 'Val-d\'Oise' },
+            { '@type': 'AdministrativeArea', name: 'Île-de-France' },
+        ],
         offers: [
             {
                 '@type': 'Offer',

@@ -22,7 +22,7 @@ export default function Hero() {
                             <span className="relative inline-flex rounded-full h-3 w-3 bg-secondary" />
                         </span>
                         <span className="text-secondary text-xs font-bold tracking-widest uppercase">
-                            Agence Web Nouvelle Génération
+                            Agence Web · Argenteuil (95)
                         </span>
                     </div>
 
@@ -40,10 +40,13 @@ export default function Hero() {
                     </h1>
 
                     {/* Sous-titre H2 */}
-                    <p className="text-xl lg:text-2xl text-slate-300 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    <p className="text-xl lg:text-2xl text-slate-300 mb-6 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                         Un site <span className="text-white font-semibold">clé en main</span>, moderne et professionnel,
                         conçu pour <span className="text-secondary font-semibold">mettre en valeur votre expertise</span> et
                         <span className="text-secondary font-semibold"> convertir vos visiteurs en clients</span>.
+                    </p>
+                    <p className="text-base text-slate-400 mb-10 max-w-xl mx-auto lg:mx-0">
+                        📍 Basés à <strong className="text-slate-300">Argenteuil (95100)</strong>, nous accompagnons les PME et artisans du <strong className="text-slate-300">Val-d&apos;Oise</strong> et de toute l&apos;<strong className="text-slate-300">Île-de-France</strong>.
                     </p>
 
                     {/* CTA */}

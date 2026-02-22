@@ -8,8 +8,8 @@ import Link from 'next/link'
 
 // Métadonnées SEO
 export const metadata: Metadata = generatePageMetadata(
-    'Nos Offres de Création de Sites Web - Tarifs & Packages',
-    '3 formules adaptées à votre budget: Pack Visibilité (500€), Pack Performance (700€), Pack Expert (sur devis). Hébergement gratuit, vous êtes propriétaire.',
+    'Création de Site Vitrine à Argenteuil (95) — Nos Offres & Tarifs',
+    'Agence web à Argenteuil. 3 formules adaptées à votre budget : Pack Visibilité (500€), Pack Performance (700€), Pack Expert (sur devis). Hébergement gratuit, vous êtes propriétaire.',
     '/services'
 )
 

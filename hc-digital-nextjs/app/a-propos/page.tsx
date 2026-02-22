@@ -6,8 +6,8 @@ import { Target, Heart, Zap, Shield } from 'lucide-react'
 
 // Métadonnées SEO
 export const metadata: Metadata = generatePageMetadata(
-    'À Propos - Notre Mission & Valeurs',
-    'Découvrez HC Digital, votre partenaire web dédié aux PME et artisans. Notre mission: créer des sites vitrines performants qui génèrent des résultats.',
+    'À Propos — Agence Web HC Digital à Argenteuil (95)',
+    'Découvrez HC Digital, votre agence web à Argenteuil (Val-d\'Oise). Notre mission : créer des sites vitrines performants pour les PME et artisans d\'Île-de-France.',
     '/a-propos'
 )
 
@@ -65,19 +65,23 @@ export default function AProposPage() {
 
                         <div className="space-y-6 text-lg">
                             <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                                Trop d'entreprises sérieuses souffrent d'une image en ligne qui ne reflète pas leur niveau réel : sites dépassés, bricolés ou inexistants, pendant que la concurrence capte l'attention et les opportunités.
+                                Trop d&apos;entreprises sérieuses souffrent d&apos;une image en ligne qui ne reflète pas leur niveau réel : sites dépassés, bricolés ou inexistants, pendant que la concurrence capte l&apos;attention et les opportunités.
                             </p>
 
                             <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                                <strong className="text-slate-900 dark:text-white">HC Digital est né d'une conviction simple :</strong> un site vitrine ne doit pas seulement « exister », il doit <span className="text-primary font-semibold">inspirer confiance</span>, <span className="text-primary font-semibold">valoriser votre expertise</span> et <span className="text-primary font-semibold">travailler pour votre activité 24h/24</span>.
+                                <strong className="text-slate-900 dark:text-white">HC Digital est né d&apos;une conviction simple :</strong> un site vitrine ne doit pas seulement « exister », il doit <span className="text-primary font-semibold">inspirer confiance</span>, <span className="text-primary font-semibold">valoriser votre expertise</span> et <span className="text-primary font-semibold">travailler pour votre activité 24h/24</span>.
                             </p>
 
                             <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                                C'est pourquoi nous proposons des <strong className="text-slate-900 dark:text-white">packs clairs et transparents</strong>, à prix fixes, pensés pour éliminer la complexité : pas de jargon inutile, pas de devis flous, pas de mauvaises surprises.
+                                C&apos;est pourquoi nous proposons des <strong className="text-slate-900 dark:text-white">packs clairs et transparents</strong>, à prix fixes, pensés pour éliminer la complexité : pas de jargon inutile, pas de devis flous, pas de mauvaises surprises.
                             </p>
 
                             <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                                 Au-delà de la création du site, nous vous accompagnons à chaque étape, avec des objectifs définis et une approche orientée résultats, pour faire de votre vitrine digitale un véritable <span className="text-secondary font-semibold">levier de crédibilité</span>, de <span className="text-secondary font-semibold">visibilité</span> et de <span className="text-secondary font-semibold">conversion</span>.
+                            </p>
+
+                            <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                📍 <strong className="text-slate-900 dark:text-white">Basés à Argenteuil (95100)</strong>, nous accompagnons les entreprises du <strong className="text-slate-900 dark:text-white">Val-d&apos;Oise</strong>, de l&apos;<strong className="text-slate-900 dark:text-white">Île-de-France</strong> et de toute la <strong className="text-slate-900 dark:text-white">France</strong> en distanciel. La proximité géographique n&apos;est jamais un frein à notre accompagnement personnalisé.
                             </p>
                         </div>
                     </div>

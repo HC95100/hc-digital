@@ -29,6 +29,10 @@ export const faqItems = [
         question: 'Mon site sera-t-il visible sur Google ?',
         answer: "**Oui, c'est inclus !** Je configure votre Google Search Console, soumets votre sitemap, et crée des backlinks de qualité (Reddit, réseaux sociaux). L'indexation prend généralement **1 à 2 semaines** après la mise en ligne.",
     },
+    {
+        question: 'Êtes-vous basés à Argenteuil ? Intervenez-vous dans toute la France ?',
+        answer: "**Oui, HC Digital est basé à Argenteuil (95100), en Val-d'Oise**, à deux pas de Paris. Nous accompagnons en priorité les entreprises d'**Argenteuil, Cergy, Pontoise, Sarcelles et toute l'Île-de-France**, mais nous travaillons aussi avec des clients partout en **France entière** en 100% distanciel. La distance n'est jamais un frein !",
+    },
 ]
 
 // Données des packs tarifaires - Alignées sur le workflow

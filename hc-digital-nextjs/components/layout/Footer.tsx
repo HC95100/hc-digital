@@ -46,7 +46,7 @@ export default function Footer() {
                         </div>
                         <div className="flex items-center gap-2 text-slate-400 text-sm">
                             <MapPin size={14} />
-                            <span>France entière (distanciel)</span>
+                            <span>Argenteuil (95) · Île-de-France · France entière</span>
                         </div>
                     </div>
 
