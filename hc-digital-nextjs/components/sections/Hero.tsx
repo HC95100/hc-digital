@@ -46,7 +46,7 @@ export default function Hero() {
                         <span className="text-secondary font-semibold"> convertir vos visiteurs en clients</span>.
                     </p>
                     <p className="text-base text-slate-400 mb-10 max-w-xl mx-auto lg:mx-0">
-                        📍 Basés à <strong className="text-slate-300">Argenteuil (95100)</strong>, nous accompagnons les PME et artisans du <strong className="text-slate-300">Val-d&apos;Oise</strong> et de toute l&apos;<strong className="text-slate-300">Île-de-France</strong>.
+                        📍 Basés à Argenteuil (95100), nous accompagnons les PME et TPE du Val-d&apos;Oise mais aussi partout en france.
                     </p>
 
                     {/* CTA */}

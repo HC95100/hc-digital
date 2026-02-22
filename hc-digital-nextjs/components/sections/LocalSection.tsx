@@ -1,17 +1,6 @@
 import { MapPin, Phone, Mail, Globe } from 'lucide-react'
 import { siteConfig } from '@/lib/metadata'
 
-const zones = [
-    'Argenteuil',
-    'Cergy',
-    'Pontoise',
-    'Sarcelles',
-    'Enghien-les-Bains',
-    'Val-d\'Oise (95)',
-    'Île-de-France',
-    'France entière',
-]
-
 export default function LocalSection() {
     return (
         <section className="py-24 bg-slate-900 relative overflow-hidden" id="nous-trouver">
@@ -28,8 +17,7 @@ export default function LocalSection() {
                         Basés à Argenteuil, actifs partout en France
                     </h2>
                     <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                        Notre agence web est implantée au cœur d&apos;Argenteuil (95100), à deux pas de Paris.
-                        Nous intervenons pour tous les artisans, TPE et PME de la région.
+                        Notre agence web est implantée au cœur d&apos;Argenteuil (95100), à deux pas de Paris et notre zone d&apos;intervention s&apos;étend à toute la France !
                     </p>
                 </div>
 
@@ -100,23 +88,7 @@ export default function LocalSection() {
                             </div>
                         </div>
 
-                        {/* Zones d'intervention */}
-                        <div className="bg-slate-800/60 backdrop-blur border border-slate-700 rounded-3xl p-8">
-                            <h3 className="text-lg font-bold text-white mb-4">Zones d&apos;intervention</h3>
-                            <div className="flex flex-wrap gap-2">
-                                {zones.map((zone) => (
-                                    <span
-                                        key={zone}
-                                        className="px-3 py-1.5 rounded-full text-sm font-medium bg-primary/10 border border-primary/20 text-primary"
-                                    >
-                                        📍 {zone}
-                                    </span>
-                                ))}
-                            </div>
-                            <p className="text-slate-500 text-sm mt-4">
-                                Nous travaillons également en 100% distanciel pour les clients hors région.
-                            </p>
-                        </div>
+
                     </div>
 
                     {/* Right — Google Maps */}
