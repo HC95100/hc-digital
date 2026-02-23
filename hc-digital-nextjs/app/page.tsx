@@ -11,7 +11,7 @@ import ContactForm from '@/components/sections/ContactForm'
 
 // Métadonnées SEO de la page d'accueil
 export const metadata: Metadata = generatePageMetadata(
-    'Agence Web à Argenteuil (95) — Création de Site Vitrine pour PME & Artisans',
+    'Agence Web à Argenteuil (95) — Création de Site Internet pour PME/TPE',
     'Agence web basée à Argenteuil (95100). Création de sites vitrines professionnels pour TPE, PME et artisans en Val-d\'Oise et Île-de-France. Devis gratuit en 24h. À partir de 500€.',
     '/'
 )
