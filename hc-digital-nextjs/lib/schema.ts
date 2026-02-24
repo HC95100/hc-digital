@@ -57,7 +57,7 @@ export function generateLocalBusinessSchema() {
         url: siteConfig.url,
         address: {
             '@type': 'PostalAddress',
-            streetAddress: 'Argenteuil',
+            streetAddress: '46 rue des Cloviers',
             addressLocality: 'Argenteuil',
             postalCode: '95100',
             addressRegion: 'Val-d\'Oise',
@@ -78,11 +78,7 @@ export function generateLocalBusinessSchema() {
             { '@type': 'AdministrativeArea', name: 'Île-de-France' },
             { '@type': 'Country', name: 'France' },
         ],
-        aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '5',
-            reviewCount: '47',
-        },
+
         openingHoursSpecification: {
             '@type': 'OpeningHoursSpecification',
             dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],

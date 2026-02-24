@@ -50,20 +50,28 @@ export default function ExitPopup() {
     })
     const [errors, setErrors] = useState<Partial<FormData>>({})
 
-    /* ── Exit-intent trigger ── */
+    /* ── 10-second timer after first click ── */
     useEffect(() => {
         const shown = sessionStorage.getItem('exitPopupShown')
         if (shown) { setHasShown(true); return }
 
-        const handleMouseLeave = (e: MouseEvent) => {
-            if (e.clientY < 10 && !hasShown) {
+        let timer: ReturnType<typeof setTimeout> | null = null
+
+        const handleFirstClick = () => {
+            if (hasShown) return
+            timer = setTimeout(() => {
                 setIsVisible(true)
                 setHasShown(true)
                 sessionStorage.setItem('exitPopupShown', 'true')
-            }
+            }, 10000)
+            document.removeEventListener('click', handleFirstClick)
         }
-        document.addEventListener('mouseout', handleMouseLeave)
-        return () => document.removeEventListener('mouseout', handleMouseLeave)
+
+        document.addEventListener('click', handleFirstClick)
+        return () => {
+            document.removeEventListener('click', handleFirstClick)
+            if (timer) clearTimeout(timer)
+        }
     }, [hasShown])
 
     /* ── Close / Reset ── */
@@ -158,17 +166,18 @@ export default function ExitPopup() {
 
                         <button
                             onClick={() => setStep('form')}
-                            className="w-full py-3 px-6 rounded-xl bg-secondary text-white font-semibold text-base hover:opacity-90 transition flex items-center justify-center gap-2"
+                            className="w-full py-3 px-6 rounded-xl font-semibold text-base hover:opacity-90 transition flex items-center justify-center gap-2 text-white"
+                            style={{ backgroundColor: '#1E40AF' }}
                         >
                             <CalendarCheck size={18} />
-                            Réserver ma démo gratuite
+                            Réserver un appel gratuit
                         </button>
 
                         <button
                             onClick={closePopup}
                             className="mt-4 text-sm text-slate-500 hover:text-slate-300 transition"
                         >
-                            Non merci, je passe mon tour
+                            Continuer vers le site
                         </button>
                     </div>
                 )}
