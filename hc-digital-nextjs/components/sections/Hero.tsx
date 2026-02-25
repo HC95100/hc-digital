@@ -4,7 +4,7 @@ import { Rocket, TrendingUp, Clock, HeadphonesIcon, Wallet } from 'lucide-react'
 // Composant Hero - Section principale de l'accueil
 export default function Hero() {
     return (
-        <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-background-dark">
+        <section className="relative pt-20 pb-20 lg:pt-28 lg:pb-32 overflow-hidden bg-background-dark">
             {/* Pattern de grille en arrière-plan */}
             <div className="absolute inset-0 pointer-events-none grid-pattern opacity-20" />
 
