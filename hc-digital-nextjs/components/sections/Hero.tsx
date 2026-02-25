@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Rocket, TrendingUp, Clock, HeadphonesIcon, Wallet } from 'lucide-react'
+import SiteCarousel from '@/components/features/SiteCarousel'
 
 // Composant Hero - Section principale de l'accueil
 export default function Hero() {
@@ -87,73 +88,9 @@ export default function Hero() {
                     </div>
                 </div>
 
-                {/* Visuel (mockup) */}
-                <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative z-10">
-                    <div className="relative w-full max-w-lg aspect-square animate-float">
-                        <div className="absolute inset-0 bg-gradient-to-tr from-primary via-secondary to-purple-600 rounded-full opacity-20 blur-3xl" />
-
-                        {/* Mockup browser */}
-                        <div className="relative bg-surface-dark border border-slate-700/50 rounded-3xl shadow-2xl overflow-hidden transform rotate-[-5deg] hover:rotate-0 transition-all duration-500 group">
-                            <div className="h-10 bg-slate-800/80 backdrop-blur w-full border-b border-slate-700 flex items-center px-4 gap-2">
-                                <div className="flex gap-1.5">
-                                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                                    <div className="w-3 h-3 rounded-full bg-green-500/80" />
-                                </div>
-                                <div className="ml-4 h-5 w-2/3 bg-slate-900/50 rounded-full" />
-                            </div>
-                            <div className="p-6 space-y-4 bg-gradient-to-b from-slate-900 to-slate-950 h-[400px]">
-                                <div className="flex justify-between items-center">
-                                    <div className="h-8 w-24 bg-slate-700 rounded animate-pulse" />
-                                    <div className="flex gap-2">
-                                        <div className="h-8 w-16 bg-primary/20 rounded" />
-                                        <div className="h-8 w-8 bg-secondary/20 rounded-full" />
-                                    </div>
-                                </div>
-                                <div className="h-32 w-full bg-gradient-to-r from-slate-800 to-slate-700 rounded-xl" />
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="h-24 bg-slate-800/50 rounded-xl border border-slate-700 p-3">
-                                        <div className="w-8 h-8 bg-secondary/20 rounded mb-2" />
-                                        <div className="w-16 h-2 bg-slate-600 rounded" />
-                                    </div>
-                                    <div className="h-24 bg-slate-800/50 rounded-xl border border-slate-700 p-3">
-                                        <div className="w-8 h-8 bg-primary/20 rounded mb-2" />
-                                        <div className="w-16 h-2 bg-slate-600 rounded" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Card flottante - Visibilité */}
-                        <div className="absolute -right-8 top-20 bg-white/10 backdrop-blur-xl border border-white/20 p-4 rounded-2xl shadow-xl animate-bounce">
-                            <div className="flex items-center gap-3">
-                                <div className="bg-green-500/20 p-2 rounded-lg">
-                                    <svg className="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p className="text-xs text-slate-300">Visibilité Google</p>
-                                    <p className="text-lg font-bold text-white">Optimisé SEO</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Card flottante - Livraison */}
-                        <div className="absolute -left-4 bottom-20 bg-white/10 backdrop-blur-xl border border-white/20 p-4 rounded-2xl shadow-xl animate-pulse">
-                            <div className="flex items-center gap-3">
-                                <div className="bg-primary/20 p-2 rounded-lg">
-                                    <svg className="w-5 h-5 text-secondary" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p className="text-xs text-slate-300">Livraison rapide</p>
-                                    <p className="text-lg font-bold text-white">7-14 jours</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                {/* Carrousel 3D de maquettes */}
+                <div className="hidden lg:flex w-full lg:w-1/2 justify-center lg:justify-end relative z-10">
+                    <SiteCarousel />
                 </div>
             </div>
         </section>
