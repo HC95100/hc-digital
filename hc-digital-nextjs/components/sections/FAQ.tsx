@@ -13,14 +13,14 @@ export default function FAQ() {
     }
 
     return (
-        <section className="py-24 bg-slate-50 dark:bg-surface-dark relative" id="faq">
+        <section className="py-12 sm:py-16 lg:py-24 bg-slate-50 dark:bg-surface-dark relative" id="faq">
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Titre de section */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-10 sm:mb-16">
                     <span className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-2 block">
                         FAQ
                     </span>
-                    <h2 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
                         Questions Fréquentes
                     </h2>
                     <p className="text-slate-600 dark:text-slate-400">
@@ -29,7 +29,7 @@ export default function FAQ() {
                 </div>
 
                 {/* Liste des FAQ */}
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                     {faqItems.map((item, index) => (
                         <div
                             key={index}
@@ -38,10 +38,10 @@ export default function FAQ() {
                             {/* Question (bouton toggle) */}
                             <button
                                 onClick={() => toggleFaq(index)}
-                                className="w-full flex items-center justify-between p-6 text-left focus:outline-none focus:ring-2 focus:ring-primary focus:ring-inset"
+                                className="w-full flex items-center justify-between p-4 sm:p-6 text-left focus:outline-none focus:ring-2 focus:ring-primary focus:ring-inset min-h-[48px]"
                                 aria-expanded={openIndex === index}
                             >
-                                <span className="font-bold text-lg text-slate-900 dark:text-white pr-4">
+                                <span className="font-bold text-base sm:text-lg text-slate-900 dark:text-white pr-4">
                                     {item.question}
                                 </span>
                                 <ChevronDown

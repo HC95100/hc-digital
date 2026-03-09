@@ -1,11 +1,13 @@
 import { Metadata } from 'next'
 import { generatePageMetadata } from '@/lib/metadata'
+import { generateBreadcrumbSchema } from '@/lib/schema'
+import { siteConfig } from '@/lib/metadata'
 import ContactForm from '@/components/sections/ContactForm'
 
 // Métadonnées SEO
 export const metadata: Metadata = generatePageMetadata(
-    'Contact — Agence Web à Argenteuil (95) — Devis Gratuit en 24h',
-    'Contactez HC Digital, votre agence web à Argenteuil (Val-d\'Oise). Devis gratuit sous 24h. Tél : 0652937631 (WhatsApp) — Email : contact.chohabi@gmail.com.',
+    'Contact — Agence Web — Devis Gratuit en 24h',
+    'Contactez HC Digital, votre agence web. Devis gratuit sous 24h. Tél : 0652937631 (WhatsApp) — Email : contact.chohabi@gmail.com.',
     '/contact'
 )
 
@@ -13,7 +15,16 @@ export const metadata: Metadata = generatePageMetadata(
 export default function ContactPage() {
     return (
         <>
-            {/* Hero */}
+            {/* Schéma BreadcrumbList JSON-LD */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(generateBreadcrumbSchema([
+                        { name: 'Accueil', url: siteConfig.url },
+                        { name: 'Contact', url: `${siteConfig.url}/contact` },
+                    ])),
+                }}
+            />
             <section className="pt-32 pb-16 bg-background-dark relative">
                 <div className="absolute inset-0 grid-pattern opacity-10" />
                 <div className="max-w-4xl mx-auto px-4 text-center relative z-10">

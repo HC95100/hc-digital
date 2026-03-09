@@ -76,22 +76,22 @@ export default function ContactForm() {
     }
 
     return (
-        <section className="py-24 bg-slate-900 dark:bg-black relative overflow-hidden" id="contact">
+        <section className="py-12 sm:py-16 lg:py-24 bg-slate-900 dark:bg-black relative overflow-hidden" id="contact">
             {/* Effets de fond */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-secondary opacity-10 blur-[100px] rounded-full animate-pulse" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary opacity-20 blur-[100px] rounded-full animate-blob" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center">
                     {/* Colonne gauche - Informations */}
                     <div>
                         <span className="text-secondary font-bold tracking-widest uppercase text-sm mb-2 block">
                             Contact Rapide
                         </span>
-                        <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
+                        <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6">
                             Prêt à décoller ?
                         </h2>
-                        <p className="text-slate-300 mb-10 text-lg leading-relaxed">
+                        <p className="text-slate-300 mb-8 sm:mb-10 text-base sm:text-lg leading-relaxed">
                             Ne laissez plus vos concurrents prendre de l'avance. Discutons de
                             votre projet et voyons comment nous pouvons multiplier vos
                             résultats.
@@ -101,14 +101,14 @@ export default function ContactForm() {
                         <div className="space-y-6">
                             <a
                                 href={`mailto:${siteConfig.email}`}
-                                className="flex items-center text-slate-300 hover:text-white transition group p-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10"
+                                className="flex items-center text-slate-300 hover:text-white transition group p-3 sm:p-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10 min-h-[48px]"
                             >
                                 <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30 group-hover:scale-110 transition mr-5">
                                     <Mail className="text-primary" size={24} />
                                 </div>
                                 <div>
                                     <span className="block text-sm text-slate-400">Email</span>
-                                    <span className="font-bold text-lg">{siteConfig.email}</span>
+                                    <span className="font-bold text-base sm:text-lg">{siteConfig.email}</span>
                                 </div>
                             </a>
 
@@ -116,14 +116,14 @@ export default function ContactForm() {
                                 href={`https://wa.me/33${siteConfig.phone.slice(1)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center text-slate-300 hover:text-white transition group p-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10"
+                                className="flex items-center text-slate-300 hover:text-white transition group p-3 sm:p-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10 min-h-[48px]"
                             >
                                 <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center border border-green-500/30 group-hover:scale-110 transition mr-5">
                                     <Phone className="text-green-400" size={24} />
                                 </div>
                                 <div>
                                     <span className="block text-sm text-slate-400">Téléphone</span>
-                                    <span className="font-bold text-lg">{siteConfig.phone} (Appel & WhatsApp)</span>
+                                    <span className="font-bold text-base sm:text-lg">{siteConfig.phone} (Appel & WhatsApp)</span>
                                 </div>
                             </a>
 
@@ -133,14 +133,14 @@ export default function ContactForm() {
                                 </div>
                                 <div>
                                     <span className="block text-sm text-slate-400">Zone d'intervention</span>
-                                    <span className="font-bold text-lg">Toute la France (Distanciel)</span>
+                                    <span className="font-bold text-base sm:text-lg">Toute la France (Distanciel)</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     {/* Colonne droite - Formulaire */}
-                    <div className="bg-surface-dark/50 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-2xl border border-slate-700">
+                    <div className="bg-surface-dark/50 backdrop-blur-xl p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-700">
                         {status === 'success' ? (
                             <div className="text-center py-12">
                                 <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">

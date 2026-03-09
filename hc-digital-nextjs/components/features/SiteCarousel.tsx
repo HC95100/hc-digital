@@ -1,128 +1,150 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 
 /* ──────────────────────────────────────────────────────────
    Mockup data
 ────────────────────────────────────────────────────────── */
 const MOCKUPS = [
-    { src: '/images/mockups/bakery.png', alt: 'Site vitrine Boulangerie Artisanale', label: 'Boulangerie' },
-    { src: '/images/mockups/lawyer.png', alt: 'Site vitrine Cabinet d\'Avocats', label: 'Cabinet d\'Avocats' },
-    { src: '/images/mockups/construction.png', alt: 'Site vitrine Construction & Rénovation', label: 'Construction' },
-    { src: '/images/mockups/beauty.png', alt: 'Site vitrine Institut de Beauté', label: 'Institut de Beauté' },
-    { src: '/images/mockups/restaurant.png', alt: 'Site vitrine Restaurant Le Petit Bistrot', label: 'Restaurant' },
+    { src: '/images/mockups/lawyer.png', alt: 'Site vitrine Cabinet d\'Avocats' },
+    { src: '/images/mockups/coach.png', alt: 'Site vitrine Coach Travel Birmingham' },
+    { src: '/images/mockups/beauchamp.png', alt: 'Site vitrine Immobilier de Prestige' },
+    { src: '/images/mockups/dailyblogpost.png', alt: 'Site vitrine Outil SaaS' },
+    { src: '/images/mockups/soselectricien.png', alt: 'Site vitrine Dépannage Électricien' },
+    { src: '/images/mockups/immobilier.png', alt: 'Site vitrine Agence Immobilière' },
 ]
 
+// Division en 2 colonnes
+const COL1 = [MOCKUPS[0], MOCKUPS[2], MOCKUPS[4]]
+const COL2 = [MOCKUPS[1], MOCKUPS[3], MOCKUPS[5]]
+
+// Duplication pour l'effet de boucle infini
+const SLIDES_COL1 = [...COL1, ...COL1, ...COL1, ...COL1]
+const SLIDES_COL2 = [...COL2, ...COL2, ...COL2, ...COL2]
+
 /* ──────────────────────────────────────────────────────────
-   Component
+   Composant
 ────────────────────────────────────────────────────────── */
 export default function SiteCarousel() {
-    const [current, setCurrent] = useState(0)
     const [paused, setPaused] = useState(false)
-    const total = MOCKUPS.length
-
-    const next = useCallback(() => {
-        setCurrent(prev => (prev + 1) % total)
-    }, [total])
-
-    /* Auto-rotate every 4s */
-    useEffect(() => {
-        if (paused) return
-        const interval = setInterval(next, 4000)
-        return () => clearInterval(interval)
-    }, [paused, next])
-
-    /* Compute position offset relative to current */
-    function getOffset(index: number) {
-        let diff = index - current
-        if (diff > Math.floor(total / 2)) diff -= total
-        if (diff < -Math.floor(total / 2)) diff += total
-        return diff
-    }
+    const [hoveredCard, setHoveredCard] = useState<string | null>(null)
 
     return (
         <div
-            className="relative w-full h-[420px] lg:h-[480px]"
-            style={{ perspective: '1200px' }}
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
+            className="relative w-full lg:w-[130%] lg:-right-[5%] xl:w-full xl:right-0 h-[350px] sm:h-[450px] lg:h-[750px] flex items-center justify-center overflow-hidden"
+            style={{
+                WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+                maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+            }}
         >
-            {MOCKUPS.map((mockup, index) => {
-                const offset = getOffset(index)
-                const isActive = offset === 0
-                const isAdjacent = Math.abs(offset) === 1
-                const isVisible = Math.abs(offset) <= 2
+            <div
+                className="flex gap-3 sm:gap-5 lg:gap-8 justify-center items-center h-[250%] w-full rotate-[-4deg] scale-105"
+                onMouseEnter={() => setPaused(true)}
+                onMouseLeave={() => setPaused(false)}
+            >
+                {/* Colonne 1 : Défile vers le bas */}
+                <div
+                    className="flex flex-col gap-3 sm:gap-5 lg:gap-8 w-1/2 max-w-[160px] sm:max-w-[220px] lg:max-w-[320px]"
+                    style={{
+                        animation: 'scroll-down 25s linear infinite',
+                        animationPlayState: paused ? 'paused' : 'running',
+                    }}
+                >
+                    {SLIDES_COL1.map((mockup, idx) => (
+                        <CarouselCard
+                            key={`col1-${idx}`}
+                            mockup={mockup}
+                            isHovered={hoveredCard === `col1-${idx}`}
+                            onHover={() => setHoveredCard(`col1-${idx}`)}
+                            onLeave={() => setHoveredCard(null)}
+                            isPriority={idx < 2}
+                        />
+                    ))}
+                </div>
 
-                if (!isVisible) return null
+                {/* Colonne 2 : Défile vers le haut */}
+                <div
+                    className="flex flex-col gap-3 sm:gap-5 lg:gap-8 w-1/2 max-w-[160px] sm:max-w-[220px] lg:max-w-[320px]"
+                    style={{
+                        animation: 'scroll-up 30s linear infinite',
+                        animationPlayState: paused ? 'paused' : 'running',
+                    }}
+                >
+                    {SLIDES_COL2.map((mockup, idx) => (
+                        <CarouselCard
+                            key={`col2-${idx}`}
+                            mockup={mockup}
+                            isHovered={hoveredCard === `col2-${idx}`}
+                            onHover={() => setHoveredCard(`col2-${idx}`)}
+                            onLeave={() => setHoveredCard(null)}
+                            isPriority={idx < 2}
+                        />
+                    ))}
+                </div>
+            </div>
 
-                /* 3D transforms */
-                const rotateY = offset * 25
-                const translateX = offset * 220
-                const translateZ = isActive ? 0 : isAdjacent ? -120 : -220
-                const scale = isActive ? 1 : isAdjacent ? 0.85 : 0.7
-                const opacity = isActive ? 1 : isAdjacent ? 0.5 : 0.2
-                const zIndex = isActive ? 30 : isAdjacent ? 20 : 10
+            {/* Styles pour l'animation continue */}
+            <style jsx>{`
+                @keyframes scroll-down {
+                    0% {
+                        transform: translateY(-50%);
+                    }
+                    100% {
+                        transform: translateY(0);
+                    }
+                }
+                @keyframes scroll-up {
+                    0% {
+                        transform: translateY(0);
+                    }
+                    100% {
+                        transform: translateY(-50%);
+                    }
+                }
+            `}</style>
+        </div>
+    )
+}
 
-                return (
-                    <div
-                        key={index}
-                        className="absolute inset-0 flex items-center justify-center"
-                        style={{
-                            transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
-                            opacity,
-                            zIndex,
-                            transition: 'transform 0.8s ease-in-out, opacity 0.8s ease-in-out',
-                            transformStyle: 'preserve-3d',
-                        }}
-                    >
-                        {/* Browser window frame */}
-                        <div className="w-[320px] lg:w-[400px] bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-700/60">
-                            {/* macOS-style title bar */}
-                            <div className="h-8 bg-slate-800/90 flex items-center px-3 gap-1.5 border-b border-slate-700/50">
-                                <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-                                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-                                <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-                                <div className="ml-3 h-4 flex-1 max-w-[160px] bg-slate-900/50 rounded-full" />
-                            </div>
-                            {/* Website screenshot */}
-                            <div className="relative w-full aspect-[4/5]">
-                                <Image
-                                    src={mockup.src}
-                                    alt={mockup.alt}
-                                    fill
-                                    className="object-cover object-top"
-                                    sizes="400px"
-                                    priority={index < 2}
-                                />
-                            </div>
-                        </div>
+function CarouselCard({ mockup, isHovered, onHover, onLeave, isPriority }: { mockup: any, isHovered: boolean, onHover: () => void, onLeave: () => void, isPriority: boolean }) {
+    const title = mockup.alt.replace('Site vitrine ', '')
 
-                        {/* Label under the active slide */}
-                        {isActive && (
-                            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-secondary/20 border border-secondary/30 rounded-full backdrop-blur-sm">
-                                <span className="text-secondary text-xs font-bold tracking-wider uppercase">
-                                    {mockup.label}
-                                </span>
-                            </div>
-                        )}
-                    </div>
-                )
-            })}
-
-            {/* Dot indicators */}
-            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
-                {MOCKUPS.map((_, i) => (
-                    <button
-                        key={i}
-                        onClick={() => setCurrent(i)}
-                        className={`w-2 h-2 rounded-full transition-all duration-300 ${i === current
-                                ? 'bg-secondary w-6'
-                                : 'bg-slate-600 hover:bg-slate-400'
-                            }`}
-                        aria-label={`Voir maquette ${i + 1}`}
+    return (
+        <div
+            className="flex-shrink-0 transition-all duration-700 ease-out cursor-pointer relative bg-[#1a1c29] rounded-2xl sm:rounded-3xl overflow-hidden group"
+            style={{
+                transform: isHovered ? 'scale(1.03) translateY(-8px)' : 'scale(1) translateY(0)',
+                boxShadow: isHovered
+                    ? '0 30px 60px -15px rgba(0,0,0,0.8), 0 0 40px rgba(56,189,248,0.15)'
+                    : '0 20px 40px -15px rgba(0,0,0,0.5)',
+                border: isHovered ? '1px solid rgba(56,189,248,0.4)' : '1px solid rgba(255,255,255,0.05)',
+                aspectRatio: '4/5',
+            }}
+            onMouseEnter={onHover}
+            onMouseLeave={onLeave}
+        >
+            <div className="absolute inset-x-0 inset-y-0 p-[2px] rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-500">
+                <div className="relative w-full h-full rounded-[14px] sm:rounded-[22px] overflow-hidden bg-[#11131a]">
+                    <Image
+                        src={mockup.src}
+                        alt={mockup.alt}
+                        fill
+                        className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]"
+                        sizes="(max-width: 640px) 40vw, (max-width: 1024px) 30vw, 320px"
+                        priority={isPriority}
                     />
-                ))}
+                </div>
+            </div>
+
+            {/* Overlay Gradient on hover */}
+            <div className={`absolute inset-0 bg-gradient-to-t from-[#0b0d14]/90 via-[#0b0d14]/40 to-transparent transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`} />
+
+            <div className={`absolute bottom-0 left-0 w-full p-3 sm:p-6 transition-all duration-500 ease-out flex flex-col justify-end ${isHovered ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'}`}>
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl p-2 sm:p-4 shadow-xl">
+                    <h3 className="text-white font-bold text-xs sm:text-lg mb-0 sm:mb-1 leading-tight">{title}</h3>
+                    <p className="text-secondary text-[10px] sm:text-xs uppercase tracking-wider font-semibold hidden sm:block">Web Design</p>
+                </div>
             </div>
         </div>
     )

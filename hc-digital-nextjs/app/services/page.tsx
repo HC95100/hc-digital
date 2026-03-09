@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { generatePageMetadata } from '@/lib/metadata'
-import { generateServiceSchema } from '@/lib/schema'
+import { generateServiceSchema, generateBreadcrumbSchema } from '@/lib/schema'
+import { siteConfig } from '@/lib/metadata'
 import Pricing from '@/components/sections/Pricing'
 import FAQ from '@/components/sections/FAQ'
 import { CheckCircle, Info } from 'lucide-react'
@@ -8,8 +9,8 @@ import Link from 'next/link'
 
 // Métadonnées SEO
 export const metadata: Metadata = generatePageMetadata(
-    'Création de Site Internet à Argenteuil (95) — Nos Offres & Tarifs',
-    'Agence web à Argenteuil. 3 formules adaptées à votre budget : Pack Visibilité (500€), Pack Performance (700€), Pack Expert (sur devis). Hébergement gratuit, vous êtes propriétaire.',
+    'Création de Site Internet — Nos Offres & Tarifs',
+    'Agence web. 3 formules adaptées à votre budget : Pack Visibilité (500€), Pack Performance (700€), Pack Expert (sur devis). Hébergement gratuit, vous êtes propriétaire.',
     '/services'
 )
 
@@ -22,6 +23,17 @@ export default function ServicesPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify(generateServiceSchema()),
+                }}
+            />
+
+            {/* Schéma BreadcrumbList JSON-LD */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(generateBreadcrumbSchema([
+                        { name: 'Accueil', url: siteConfig.url },
+                        { name: 'Services', url: `${siteConfig.url}/services` },
+                    ])),
                 }}
             />
 

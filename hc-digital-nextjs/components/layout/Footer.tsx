@@ -6,6 +6,7 @@ import { Mail, MapPin, Phone } from 'lucide-react'
 // Liens rapides
 const quickLinks = [
     { href: '/services', label: 'Services' },
+    { href: '/blog', label: 'Blog' },
     { href: '/a-propos', label: 'À propos' },
     { href: '/contact', label: 'Contact' },
 ]
@@ -18,19 +19,19 @@ const legalLinks = [
 // Footer compact
 export default function Footer() {
     return (
-        <footer className="bg-slate-900 border-t border-slate-800 pt-12 pb-6">
+        <footer className="bg-slate-900 border-t border-slate-800 pt-8 sm:pt-12 pb-6">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Grille compacte */}
-                <div className="flex flex-col md:flex-row justify-between gap-8 mb-8">
+                <div className="flex flex-col md:flex-row justify-between gap-6 sm:gap-8 mb-6 sm:mb-8">
                     {/* Logo et contact */}
                     <div className="flex flex-col gap-4">
                         <Image
                             src="/images/logo-hc-digital.png"
-                            alt="HC Digital"
+                            alt="HC Digital Logo"
                             width={140}
                             height={40}
-                            className="brightness-0 invert"
-                            style={{ width: 'auto', height: 'auto' }}
+                            className="brightness-0 invert w-auto h-auto"
+                            loading="lazy"
                         />
                         <div className="flex items-center gap-2 text-slate-400 text-sm">
                             <Mail size={14} />
@@ -46,12 +47,12 @@ export default function Footer() {
                         </div>
                         <div className="flex items-center gap-2 text-slate-400 text-sm">
                             <MapPin size={14} />
-                            <span>Argenteuil (95) · Île-de-France · France entière</span>
+                            <span>France entière</span>
                         </div>
                     </div>
 
                     {/* Liens rapides */}
-                    <div className="flex gap-12">
+                    <div className="flex flex-row gap-8 sm:gap-12">
                         <div>
                             <h4 className="font-semibold text-white text-sm mb-3">Navigation</h4>
                             <ul className="space-y-2">

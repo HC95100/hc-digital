@@ -10,6 +10,7 @@ import MobileMenu from './MobileMenu'
 const navLinks = [
     { href: '/', label: 'Accueil' },
     { href: '/services', label: 'Services' },
+    { href: '/blog', label: 'Blog' },
     { href: '/a-propos', label: 'À propos' },
 ]
 
@@ -34,7 +35,7 @@ export default function Header() {
                     : 'py-4 bg-transparent'
                     }`}
             >
-                <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <nav className="w-full px-4 sm:px-8 xl:px-16">
                     <div className="flex justify-between items-center">
                         {/* Logo */}
                         <Link href="/" className="flex-shrink-0 flex items-center">
@@ -43,8 +44,7 @@ export default function Header() {
                                 alt="HC Digital - Agence Web"
                                 width={160}
                                 height={48}
-                                className={`transition-transform duration-300 ${isScrolled ? 'scale-90' : 'scale-100'}`}
-                                style={{ width: 'auto', height: 'auto' }}
+                                className={`transition-transform duration-300 w-auto h-auto ${isScrolled ? 'scale-90' : 'scale-100'}`}
                                 priority
                             />
                         </Link>

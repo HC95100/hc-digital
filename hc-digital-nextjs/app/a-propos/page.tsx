@@ -1,13 +1,15 @@
 import { Metadata } from 'next'
 import { generatePageMetadata } from '@/lib/metadata'
+import { generateBreadcrumbSchema } from '@/lib/schema'
+import { siteConfig } from '@/lib/metadata'
 import Process from '@/components/sections/Process'
 import Link from 'next/link'
 import { Target, Heart, Zap, Shield } from 'lucide-react'
 
 // Métadonnées SEO
 export const metadata: Metadata = generatePageMetadata(
-    'À Propos — Agence Web HC Digital à Argenteuil (95)',
-    'Découvrez HC Digital, votre agence web à Argenteuil (Val-d\'Oise). Notre mission : créer des sites vitrines performants pour les PME et artisans d\'Île-de-France.',
+    'À Propos — Agence Web HC Digital',
+    'Découvrez HC Digital, votre agence web. Notre mission : créer des sites vitrines performants pour les PME et artisans.',
     '/a-propos'
 )
 
@@ -39,6 +41,16 @@ const values = [
 export default function AProposPage() {
     return (
         <>
+            {/* Schéma BreadcrumbList JSON-LD */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(generateBreadcrumbSchema([
+                        { name: 'Accueil', url: siteConfig.url },
+                        { name: 'À Propos', url: `${siteConfig.url}/a-propos` },
+                    ])),
+                }}
+            />
             {/* Hero - Notre Mission */}
             <section className="pt-32 pb-16 bg-background-dark relative">
                 <div className="absolute inset-0 grid-pattern opacity-10" />
@@ -81,7 +93,7 @@ export default function AProposPage() {
                             </p>
 
                             <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                                📍 <strong className="text-slate-900 dark:text-white">Basés à Argenteuil (95100)</strong>, nous accompagnons les entreprises du <strong className="text-slate-900 dark:text-white">Val-d&apos;Oise</strong>, de l&apos;<strong className="text-slate-900 dark:text-white">Île-de-France</strong> et de toute la <strong className="text-slate-900 dark:text-white">France</strong> en distanciel. La proximité géographique n&apos;est jamais un frein à notre accompagnement personnalisé.
+                                📍 Nous accompagnons les entreprises de toute la <strong className="text-slate-900 dark:text-white">France</strong> en distanciel. La proximité géographique n&apos;est jamais un frein à notre accompagnement personnalisé.
                             </p>
                         </div>
                     </div>

@@ -6,20 +6,20 @@ import { PricingCard } from '@/components/ui/Card'
 // Composant Section Tarifs
 export default function Pricing() {
     return (
-        <section className="py-24 bg-slate-50 dark:bg-background-dark/50 relative" id="services">
+        <section className="py-12 sm:py-16 lg:py-24 bg-slate-50 dark:bg-background-dark/50 relative" id="services">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Titre de section */}
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
+                <div className="text-center mb-10 sm:mb-16">
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
                         Solutions de Croissance
                     </h2>
-                    <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">
+                    <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-base sm:text-lg">
                         Choisissez le niveau d'impact adapté à vos ambitions.
                     </p>
                 </div>
 
                 {/* Grille des packs */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                     {pricingPlans.map((plan) => (
                         <PricingCard key={plan.id} featured={plan.popular}>
                             {/* Barre de couleur */}
@@ -48,8 +48,8 @@ export default function Pricing() {
                             <div className="flex items-baseline mb-8">
                                 <span
                                     className={`font-extrabold ${plan.popular
-                                            ? 'text-5xl text-white'
-                                            : 'text-4xl text-primary'
+                                        ? 'text-5xl text-white'
+                                        : 'text-4xl text-primary'
                                         }`}
                                 >
                                     {plan.price}
@@ -95,8 +95,8 @@ export default function Pricing() {
                             <Link
                                 href={`/contact?pack=${plan.id}`}
                                 className={`w-full block text-center py-4 px-4 rounded-xl font-bold transition-all ${plan.popular
-                                        ? 'bg-secondary hover:bg-secondary-dark text-slate-900 shadow-neon transform hover:scale-105'
-                                        : 'border-2 border-primary text-primary hover:bg-primary hover:text-white'
+                                    ? 'bg-secondary hover:bg-secondary-dark text-slate-900 shadow-neon transform hover:scale-105'
+                                    : 'border-2 border-primary text-primary hover:bg-primary hover:text-white'
                                     }`}
                             >
                                 {plan.id === 'expert' ? "Parler d'un projet" : 'Choisir ce pack'}

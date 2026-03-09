@@ -173,5 +173,77 @@ export function generateWebSiteSchema() {
         '@type': 'WebSite',
         url: siteConfig.url,
         name: siteConfig.name,
+        description: siteConfig.description,
+        publisher: {
+            '@type': 'Organization',
+            name: siteConfig.name,
+        },
+        potentialAction: {
+            '@type': 'SearchAction',
+            target: {
+                '@type': 'EntryPoint',
+                urlTemplate: `${siteConfig.url}/blog?q={search_term_string}`,
+            },
+            'query-input': 'required name=search_term_string',
+        },
+    }
+}
+
+// Schéma BlogPosting (articles de blog)
+export function generateBlogPostingSchema(post: {
+    title: string
+    description: string
+    slug: string
+    publishedAt: string
+    updatedAt: string
+    author: string
+    coverImage?: string
+    category: string
+}) {
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: post.title,
+        description: post.description,
+        url: `${siteConfig.url}/blog/${post.slug}`,
+        datePublished: post.publishedAt,
+        dateModified: post.updatedAt,
+        author: {
+            '@type': 'Person',
+            name: post.author,
+        },
+        publisher: {
+            '@type': 'Organization',
+            name: siteConfig.name,
+            logo: {
+                '@type': 'ImageObject',
+                url: `${siteConfig.url}/images/logo-hc-digital.png`,
+            },
+        },
+        image: post.coverImage
+            ? `${siteConfig.url}${post.coverImage}`
+            : `${siteConfig.url}/images/og-image.jpg`,
+        mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': `${siteConfig.url}/blog/${post.slug}`,
+        },
+        articleSection: post.category,
+        inLanguage: 'fr-FR',
+    }
+}
+
+// Schéma Blog (page listing)
+export function generateBlogSchema() {
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'Blog',
+        name: `Blog ${siteConfig.name}`,
+        description: 'Conseils, guides et astuces pour la création de sites internet, le SEO et le marketing digital pour PME et artisans.',
+        url: `${siteConfig.url}/blog`,
+        publisher: {
+            '@type': 'Organization',
+            name: siteConfig.name,
+        },
+        inLanguage: 'fr-FR',
     }
 }

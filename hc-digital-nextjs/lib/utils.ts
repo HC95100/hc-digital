@@ -14,12 +14,24 @@ export const faqItems = [
         answer: "**Oui !** L'hébergement sur Vercel (plan Hobby) est **100% gratuit** et suffisant pour un site vitrine. En revanche, le **nom de domaine est payant** (environ **10€/an**) et vous l'achetez directement sur votre compte Vercel. C'est vous qui êtes propriétaire.",
     },
     {
+        question: 'Quel est le prix d\'un site vitrine ?',
+        answer: 'Chez HC Digital, nos tarifs sont **transparents et fixes** : **Pack Visibilité à 500€** pour un site one-page (livré en 7 jours), **Pack Performance à 700€** pour un site multi-pages avec SEO avancé (livré en 14 jours), et **Pack Expert sur devis** pour les projets sur-mesure. L\'hébergement est gratuit et le seul coût récurrent est le nom de domaine (~10€/an).',
+    },
+    {
         question: 'Est-ce que je suis propriétaire de mon site ?',
         answer: "**Oui, à 100%.** Le projet est transféré sur **votre propre compte Vercel**. Vous possédez le code source, le domaine, et l'hébergement. Aucune dépendance envers moi : vous êtes libre d'engager un autre développeur si vous le souhaitez.",
     },
     {
+        question: 'Quelle est la différence entre un site vitrine et un site e-commerce ?',
+        answer: 'Un **site vitrine** présente votre activité, vos services et vos coordonnées — idéal pour les TPE, PME et artisans (à partir de **500€**). Un **site e-commerce** permet de vendre des produits en ligne avec catalogue, panier et paiement (à partir de **2 000€**). Pour la majorité des entreprises de services, un site vitrine suffit largement pour générer des leads et construire votre crédibilité.',
+    },
+    {
         question: 'Dois-je faire des manipulations techniques ?',
         answer: "**Très peu, et c'est guidé étape par étape.** Vous devrez : créer un compte Vercel (2 min), acheter votre domaine (3 min), et créer votre Google Search Console (3 min). Je vous envoie des emails détaillés avec screenshots pour chaque étape. **Total : environ 10 minutes d'actions.**",
+    },
+    {
+        question: 'Comment être visible sur Google rapidement ?',
+        answer: 'La visibilité sur Google passe par plusieurs leviers : un **site techniquement optimisé** (ce que nous faisons), un **contenu de qualité** avec les bons mots-clés, des **données structurées** (Schema.org), la soumission à **Google Search Console**, et la création de **backlinks**. L\'indexation initiale prend généralement **1 à 2 semaines**. Pour le positionnement en première page, comptez **2 à 6 mois** selon la concurrence sur vos mots-clés.',
     },
     {
         question: 'Quelle garantie après livraison ?',
