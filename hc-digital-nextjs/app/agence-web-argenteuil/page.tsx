@@ -6,7 +6,7 @@ import Pricing from '@/components/sections/Pricing'
 import SiteCarousel from '@/components/features/SiteCarousel'
 import Process from '@/components/sections/Process'
 import LocalSection from '@/components/sections/LocalSection'
-import { ArrowRight, MapPin, CheckCircle, ChevronDown } from 'lucide-react'
+import { ArrowRight, MapPin, CheckCircle, ChevronDown, Palette, Code2, LayoutDashboard, TrendingUp, Server, Globe } from 'lucide-react'
 
 // Métadonnées SEO
 export const metadata: Metadata = {
@@ -110,6 +110,40 @@ const services = [
     'Design responsive : mobile, tablette et ordinateur',
 ]
 
+// Features pour la section sur-mesure
+const surMesureFeatures = [
+    {
+        Icon: Palette,
+        title: 'Design web personnalisé',
+        desc: "Un site web qui vous ressemble, conçu à partir de votre charte graphique et de votre identité visuelle.",
+    },
+    {
+        Icon: Code2,
+        title: 'Développement sur-mesure',
+        desc: "Compatible mobile, tablette et desktop avec les technologies modernes Next.js et React.",
+    },
+    {
+        Icon: LayoutDashboard,
+        title: 'Propriété totale',
+        desc: "Le code source, le domaine et l'hébergement sont à votre nom. Vous restez libre et indépendant.",
+    },
+    {
+        Icon: TrendingUp,
+        title: 'Visibilité SEO garantie',
+        desc: "Votre site optimisé et indexé rapidement sur Google grâce au référencement local ciblé.",
+    },
+    {
+        Icon: Server,
+        title: 'Hébergement gratuit',
+        desc: "Votre site hébergé gratuitement sur Vercel — sans frais mensuels cachés, sans abonnement.",
+    },
+    {
+        Icon: Globe,
+        title: 'Nom de domaine ~10€/an',
+        desc: "Le seul coût récurrent : votre nom de domaine personnalisé, renouvelable pour environ 10€ par an.",
+    },
+]
+
 // Page Agence Web Argenteuil
 export default function AgenceWebArgenteuil() {
     return (
@@ -139,46 +173,100 @@ export default function AgenceWebArgenteuil() {
                 }}
             />
 
-            {/* ── HERO ── */}
+            {/* ── HERO — 2 colonnes : texte gauche + carousel droite ── */}
             <section className='pt-32 pb-16 bg-background-dark relative overflow-hidden'>
                 <div className='absolute inset-0 grid-pattern opacity-10' />
-                <div className='max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10'>
-                    <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-6'>
-                        <MapPin size={14} />
-                        Argenteuil (95100) — Val-d&apos;Oise
+                <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
+                    <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
+                        {/* Colonne gauche — texte aligné à gauche */}
+                        <div>
+                            <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-6'>
+                                <MapPin size={14} />
+                                Argenteuil (95100) — Val-d&apos;Oise
+                            </div>
+                            <h1 className='text-4xl sm:text-5xl font-extrabold text-white mb-6 leading-tight'>
+                                Agence Web à Argenteuil —{' '}
+                                <span className='text-primary'>Création de Site Internet</span>{' '}
+                                pour PME &amp; Artisans
+                            </h1>
+                            <p className='text-lg text-slate-300 mb-10 leading-relaxed'>
+                                HC Digital est une agence web basée à Argenteuil (95100), spécialisée dans la
+                                création de sites vitrines professionnels pour les PME, TPE, artisans et
+                                indépendants du Val-d&apos;Oise. Nous concevons des sites modernes, rapides et
+                                optimisés pour Google — conçus pour transformer vos visiteurs en clients. Devis
+                                gratuit en 24h, à partir de 500€.
+                            </p>
+                            <div className='flex flex-col sm:flex-row gap-4'>
+                                <Link
+                                    href='/contact'
+                                    className='inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition text-base'
+                                >
+                                    Demander un devis gratuit
+                                    <ArrowRight size={18} />
+                                </Link>
+                                <Link
+                                    href='/services'
+                                    className='inline-flex items-center justify-center px-8 py-4 bg-white/5 text-slate-300 font-bold rounded-xl border border-white/10 hover:bg-white/10 transition text-base'
+                                >
+                                    Découvrir nos offres
+                                </Link>
+                            </div>
+                        </div>
+
+                        {/* Colonne droite — carousel mockups */}
+                        <div className='hidden lg:block'>
+                            <SiteCarousel />
+                        </div>
                     </div>
-                    <h1 className='text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight'>
-                        Agence Web à Argenteuil —{' '}
-                        <span className='text-primary'>Création de Site Internet</span>{' '}
-                        pour PME &amp; Artisans
-                    </h1>
-                    <p className='text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed'>
-                        HC Digital est une agence web basée à Argenteuil (95100), spécialisée dans la création
-                        de sites vitrines professionnels pour les PME, TPE, artisans et indépendants du
-                        Val-d&apos;Oise. Nous concevons des sites modernes, rapides et optimisés pour Google —
-                        conçus pour transformer vos visiteurs en clients. Devis gratuit en 24h, à partir de
-                        500€.
-                    </p>
-                    <div className='flex flex-col sm:flex-row justify-center gap-4'>
-                        <Link
-                            href='/contact'
-                            className='inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition text-base'
-                        >
-                            Demander un devis gratuit
-                            <ArrowRight size={18} />
-                        </Link>
-                        <Link
-                            href='/services'
-                            className='inline-flex items-center justify-center px-8 py-4 bg-white/5 text-slate-300 font-bold rounded-xl border border-white/10 hover:bg-white/10 transition text-base'
-                        >
-                            Découvrir nos offres
-                        </Link>
+                </div>
+            </section>
+
+            {/* ── SUR-MESURE — section de transition ── */}
+            <section className='py-16 sm:py-24 bg-background-light dark:bg-background-dark border-t border-slate-100 dark:border-slate-800'>
+                <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+                    <div className='grid grid-cols-1 lg:grid-cols-2 gap-14 items-center'>
+                        {/* Gauche — titre + CTA */}
+                        <div>
+                            <span className='inline-block text-primary text-xs font-bold uppercase tracking-[0.25em] border-b-2 border-primary pb-1 mb-6'>
+                                Sur-mesure
+                            </span>
+                            <h2 className='text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-8 leading-tight'>
+                                Boostons votre présence en ligne avec un site internet clé-en-main qui{' '}
+                                <span className='text-primary'>VOUS</span> ressemble, performant et
+                                sur-mesure&hellip;
+                            </h2>
+                            <Link
+                                href='/contact'
+                                className='inline-flex items-center px-8 py-4 border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white font-bold rounded-xl hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-900 transition text-sm uppercase tracking-wide'
+                            >
+                                Demander un devis site web
+                            </Link>
+                        </div>
+
+                        {/* Droite — grille 2×3 de features */}
+                        <div className='grid grid-cols-2 gap-x-8 gap-y-10'>
+                            {surMesureFeatures.map(({ Icon, title, desc }) => (
+                                <div key={title} className='flex flex-col items-center text-center gap-3'>
+                                    <Icon
+                                        size={40}
+                                        strokeWidth={1.5}
+                                        className='text-slate-700 dark:text-slate-300'
+                                    />
+                                    <h3 className='font-bold text-slate-900 dark:text-white text-sm leading-snug'>
+                                        {title}
+                                    </h3>
+                                    <p className='text-slate-500 dark:text-slate-400 text-xs leading-relaxed'>
+                                        {desc}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* ── POURQUOI UNE AGENCE LOCALE ── */}
-            <section className='py-16 sm:py-24 bg-background-light dark:bg-background-dark'>
+            <section className='py-16 sm:py-24 bg-slate-50 dark:bg-surface-dark'>
                 <div className='max-w-4xl mx-auto px-4 sm:px-6'>
                     <h2 className='text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-8'>
                         Pourquoi faire appel à une agence web locale à Argenteuil ?
@@ -215,7 +303,7 @@ export default function AgenceWebArgenteuil() {
             </section>
 
             {/* ── CE QUE NOUS FAISONS ── */}
-            <section className='py-16 sm:py-24 bg-slate-50 dark:bg-surface-dark'>
+            <section className='py-16 sm:py-24 bg-background-light dark:bg-background-dark'>
                 <div className='max-w-4xl mx-auto px-4 sm:px-6'>
                     <h2 className='text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-8'>
                         Ce que nous faisons pour les entreprises d&apos;Argenteuil
@@ -231,7 +319,7 @@ export default function AgenceWebArgenteuil() {
                         {services.map((s, i) => (
                             <div
                                 key={i}
-                                className='flex items-start gap-3 p-4 bg-white dark:bg-background-dark rounded-xl border border-slate-100 dark:border-slate-700'
+                                className='flex items-start gap-3 p-4 bg-white dark:bg-surface-dark rounded-xl border border-slate-100 dark:border-slate-700'
                             >
                                 <CheckCircle className='text-primary flex-shrink-0 mt-0.5' size={18} />
                                 <span className='text-slate-700 dark:text-slate-300 text-sm'>{s}</span>
@@ -255,22 +343,6 @@ export default function AgenceWebArgenteuil() {
 
             {/* ── PACKS TARIFS ── */}
             <Pricing />
-
-            {/* ── RÉALISATIONS ── */}
-            <section className='py-16 sm:py-24 bg-background-light dark:bg-background-dark'>
-                <div className='max-w-7xl mx-auto px-4 sm:px-6'>
-                    <div className='text-center mb-12'>
-                        <h2 className='text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4'>
-                            Nos réalisations pour des entreprises locales
-                        </h2>
-                        <p className='text-slate-600 dark:text-slate-400 max-w-2xl mx-auto'>
-                            Des sites vitrines professionnels livrés à des artisans, commerçants et PME dans
-                            toute l&apos;Île-de-France.
-                        </p>
-                    </div>
-                    <SiteCarousel />
-                </div>
-            </section>
 
             {/* ── POURQUOI UN SITE INDISPENSABLE ── */}
             <section className='py-16 sm:py-24 bg-slate-900'>
