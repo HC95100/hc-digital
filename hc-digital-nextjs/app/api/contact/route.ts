@@ -30,8 +30,8 @@ export async function POST(req: Request) {
         const { firstName, lastName, email, phone, projectType, message } = result.data;
 
         const { data, error } = await resend.emails.send({
-            from: 'HC Digital <onboarding@resend.dev>',
-            to: ['hamza.chohabi95100@gmail.com'],
+            from: 'HC Digital <contact@hc-digital-web.com>',
+            to: ['contact@hc-digital-web.com'],
             replyTo: email,
             subject: `Nouvelle demande de devis : ${projectType}`,
             html: `
