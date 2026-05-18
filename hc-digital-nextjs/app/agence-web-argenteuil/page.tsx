@@ -214,7 +214,7 @@ export default function AgenceWebArgenteuil() {
                         </div>
 
                         {/* Colonne droite — carousel mockups */}
-                        <div className='hidden lg:block'>
+                        <div>
                             <SiteCarousel />
                         </div>
                     </div>
