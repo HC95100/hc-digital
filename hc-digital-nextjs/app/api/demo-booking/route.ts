@@ -36,7 +36,7 @@ export async function POST(req: Request) {
 
         const { data, error } = await resend.emails.send({
             from: 'HC Digital <onboarding@resend.dev>',
-            to: ['hamza.chohabi95100@gmail.com'],
+            to: ['contact@hc-digital-web.com'],
             subject: `📅 Nouvelle réservation de démo — ${fullName}`,
             html: `
                 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #f9fafb; border-radius: 12px;">

@@ -6,6 +6,7 @@ import { Mail, MapPin, Phone } from 'lucide-react'
 // Liens rapides
 const quickLinks = [
     { href: '/services', label: 'Services' },
+    { href: '/agence-web-argenteuil', label: 'Agence Web Argenteuil' },
     { href: '/blog', label: 'Blog' },
     { href: '/a-propos', label: 'À propos' },
     { href: '/contact', label: 'Contact' },

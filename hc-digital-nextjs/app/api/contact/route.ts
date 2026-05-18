@@ -1,4 +1,3 @@
-
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { z } from 'zod';
@@ -31,7 +30,7 @@ export async function POST(req: Request) {
 
         const { data, error } = await resend.emails.send({
             from: 'HC Digital <onboarding@resend.dev>',
-            to: ['hamza.chohabi95100@gmail.com'],
+            to: ['contact@hc-digital-web.com'],
             replyTo: email,
             subject: `Nouvelle demande de devis : ${projectType}`,
             html: `
